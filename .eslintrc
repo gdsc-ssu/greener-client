@@ -1,0 +1,39 @@
+{
+  "env": {
+    "node": true,
+    // for supporting some global methods (like `fetch`)
+    "browser": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": ["airbnb", "airbnb/hooks", "plugin:react-native/all", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "globals": {
+    "__DEV__": "readonly"
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
+    "react/function-component-definition": [
+      1,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "react/react-in-jsx-scope": 0,
+    "react/style-prop-object": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/extensions": 0,
+    "no-unused-vars": "warn"
+  }
+}
