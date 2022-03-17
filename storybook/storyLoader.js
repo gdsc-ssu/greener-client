@@ -3,9 +3,11 @@
 //
 // https://github.com/elderfo/react-native-storybook-loader.git
 
-function loadStories() {}
+function loadStories() {
+  require('../src/components/common/molecules/TextBox/TextBox.stories');
+}
 
-const stories = [];
+const stories = ['../src/components/common/molecules/TextBox/TextBox.stories'];
 
 module.exports = {
   loadStories,
