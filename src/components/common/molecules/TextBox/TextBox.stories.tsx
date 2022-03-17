@@ -1,6 +1,7 @@
 import StorybookWrap from '@/components/common/storybook/StorybookWrap';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react-native';
+import React from 'react';
 import TextBox from './TextBox';
 
 const GROUP_ID = 'TextBox';
