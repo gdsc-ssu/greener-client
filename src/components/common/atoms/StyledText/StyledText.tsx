@@ -8,9 +8,7 @@ interface StyledTextProps {
 }
 
 const StyledText = styled.Text<StyledTextProps>((props) => ({
-  fontFamily: TEXT_STYLES[props.name].fontFamily,
-  fontSize: TEXT_STYLES[props.name].size,
-  lineHeight: TEXT_STYLES[props.name].lineHeight,
+  ...TEXT_STYLES[props.name],
   color: props.color || COLORS.grayscale.black,
 }));
 
