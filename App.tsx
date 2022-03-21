@@ -1,6 +1,7 @@
+import RootNavigator from '@/routes/RootNavigator';
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
 import StorybookUIRoot from './storybook';
 
 const { connectToDevTools } = require('react-devtools-core');
@@ -12,17 +13,7 @@ if (__DEV__) {
   });
 }
 
-const STORYBOOK_ENABLED = true;
-const COLOR = '#fff';
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: COLOR,
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
+const STORYBOOK_ENABLED = false;
 
 function App() {
   const [loaded] = useFonts({
@@ -37,10 +28,10 @@ function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <>
+      <RootNavigator />
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
 

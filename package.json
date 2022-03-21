@@ -13,7 +13,9 @@
   "dependencies": {
     "@emotion/native": "11.0.0",
     "@emotion/react": "11.8.1",
+    "@react-navigation/bottom-tabs": "6.2.0",
     "@react-navigation/native": "6.0.8",
+    "@react-navigation/stack": "6.1.1",
     "expo": "44.0.0",
     "expo-community-flipper": "44.0.1",
     "expo-dev-client": "0.8.4",
@@ -26,6 +28,7 @@
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
     "react-native-flipper": "0.136.0",
+    "react-native-gesture-handler": "2.1.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "3.10.1",
     "react-native-svg": "12.1.1",

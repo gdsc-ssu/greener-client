@@ -3,6 +3,7 @@ import { TEXT_STYLES, TEXT_STYLE_NAME } from '@/constants/styles/textStyles';
 import styled from '@emotion/native';
 
 export const Container = styled.View({
+  width: '100%',
   paddingHorizontal: 12,
   paddingVertical: 8,
   borderRadius: 8,

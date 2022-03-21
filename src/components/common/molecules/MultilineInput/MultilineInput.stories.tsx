@@ -6,7 +6,7 @@ import MultilineInput from './MultilineInput';
 
 const GROUP_ID = 'MultilineInput';
 
-storiesOf('components|atoms', module)
+storiesOf('components/common/molecules', module)
   .addDecorator((getStory) => <StorybookWrap>{getStory()}</StorybookWrap>)
   .addDecorator(withKnobs)
   .add(GROUP_ID, () => (

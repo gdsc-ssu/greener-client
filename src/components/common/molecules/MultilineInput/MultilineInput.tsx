@@ -2,7 +2,7 @@ import SendFilled from '@/assets/icons/SendFilled';
 import SendOutline from '@/assets/icons/SendOutline';
 import PressableIcon from '@/components/common/atoms/PressableIcon';
 import { COLORS } from '@/constants/styles/colors';
-import * as style from './MultilineInput.style';
+import * as styles from './MultilineInput.style';
 
 interface MultilineInputProps {
   value?: string;
@@ -18,8 +18,8 @@ export default function MultilineInput({
   onPressSend,
 }: MultilineInputProps) {
   return (
-    <style.Container>
-      <style.StyledTextInput
+    <styles.Container>
+      <styles.StyledTextInput
         placeholder={placeholder}
         placeholderTextColor={COLORS.grayscale.gray5}
         value={value}
@@ -35,6 +35,6 @@ export default function MultilineInput({
         }
         onPress={onPressSend}
       />
-    </style.Container>
+    </styles.Container>
   );
 }
