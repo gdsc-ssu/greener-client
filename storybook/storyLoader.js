@@ -10,7 +10,9 @@ function loadStories() {
   require('../src/components/common/molecules/MultilineInput/MultilineInput.stories');
   require('../src/components/common/molecules/TextBox/TextBox.stories');
   require('../src/components/map/molecules/LocationCard/LocationCard.stories');
+  require('../src/components/common/molecules/TopBar/MainTopBar.stories');
   require('../src/components/qna/organisms/QuestionBox/QuestionBox.stories');
+  require('../src/templates/main/MainTemplate/MainTemplate.stories');
 }
 
 const stories = [
@@ -20,7 +22,9 @@ const stories = [
   '../src/components/common/molecules/MultilineInput/MultilineInput.stories',
   '../src/components/common/molecules/TextBox/TextBox.stories',
   '../src/components/map/molecules/LocationCard/LocationCard.stories',
+  '../src/components/common/molecules/TopBar/MainTopBar.stories',
   '../src/components/qna/organisms/QuestionBox/QuestionBox.stories',
+  '../src/templates/main/MainTemplate/MainTemplate.stories',
 ];
 
 module.exports = {
