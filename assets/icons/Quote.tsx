@@ -5,7 +5,7 @@ import * as React from 'react';
 import Svg, { Path } from 'react-native-svg';
 import { IconProps } from './iconTypes';
 
-export default function SvgComponent({ color, ...props }: IconProps) {
+export default function Quote({ color, ...props }: IconProps) {
   return (
     <Svg width={17} height={17} fill="none" {...props}>
       <Path
