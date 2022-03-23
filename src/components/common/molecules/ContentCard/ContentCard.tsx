@@ -16,7 +16,13 @@ export default function ContentCard({ title, coverImage }: ContentCardProps) {
         }}
       />
       <styles.TitleWrap>
-        <StyledText name={TEXT_STYLE_NAME.body2B}>{title}</StyledText>
+        <StyledText
+          name={TEXT_STYLE_NAME.body2B}
+          numberOfLines={2}
+          ellipsizeMode="tail"
+        >
+          {title}
+        </StyledText>
       </styles.TitleWrap>
     </styles.Wrap>
   );

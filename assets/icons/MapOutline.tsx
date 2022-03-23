@@ -7,7 +7,7 @@ import { IconProps } from './iconTypes';
 
 export default function MapOutline({ color, ...props }: IconProps) {
   return (
-    <Svg width={24} height={24} fill="none" {...props}>
+    <Svg width={24} height={24} fill="none" viewBox="0 0 24 24" {...props}>
       <Path
         d="M20 11.175C20 15.691 16.418 21 12 21s-8-5.31-8-9.825S7.582 3 12 3s8 3.66 8 8.175Z"
         stroke={color || COLORS.grayscale.black}
