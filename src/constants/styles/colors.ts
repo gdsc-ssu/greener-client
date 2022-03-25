@@ -17,6 +17,10 @@ export const COLORS = {
       normal: '#00BD33',
       pressed: '#009729',
     },
+    mint: {
+      normal: '#00B998',
+      pressed: '#009C80',
+    },
   },
   grayscale: {
     white: '#FFFFFF',
