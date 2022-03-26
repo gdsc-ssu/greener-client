@@ -1,8 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 
 import Logo from '@/assets/icons/Logo';
+import TopBar from '@/components/common/molecules/TopBar';
 import { Animated } from 'react-native';
-import TopBar from './TopBar';
 
 interface MainTopBarProps {
   scroll: Animated.Value;

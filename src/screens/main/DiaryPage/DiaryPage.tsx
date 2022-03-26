@@ -1,10 +1,10 @@
-import { Text } from 'react-native';
+import { DiaryTemplateWrapped } from '@/templates/diary/DiaryTemplate';
 import * as styles from './DiaryPage.style';
 
 export default function DiaryPage() {
   return (
     <styles.Container>
-      <Text>asdf</Text>
+      <DiaryTemplateWrapped />
     </styles.Container>
   );
 }

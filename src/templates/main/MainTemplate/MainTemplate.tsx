@@ -1,13 +1,13 @@
 import StyledText from '@/components/common/atoms/StyledText';
 import ContentCard from '@/components/common/molecules/ContentCard';
 import TextBox from '@/components/common/molecules/TextBox/TextBox';
-import { MainTopBar } from '@/components/common/molecules/TopBar';
 import QuestionBox from '@/components/qna/organisms/QuestionBox';
 import { COLORS } from '@/constants/styles/colors';
 import { TEXT_STYLE_NAME } from '@/constants/styles/textStyles';
 import { useRef } from 'react';
 import { Animated } from 'react-native';
 import * as styles from './MainTemplate.style';
+import MainTopBar from './MainTopBar';
 
 export default function MainTemplate() {
   const scroll = useRef(new Animated.Value(0)).current;

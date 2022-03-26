@@ -13,7 +13,7 @@ if (__DEV__) {
   });
 }
 
-const STORYBOOK_ENABLED = true;
+const STORYBOOK_ENABLED = false;
 
 function App() {
   const [loaded] = useFonts({

@@ -11,7 +11,6 @@ function loadStories() {
   require('../src/components/common/molecules/MultilineInput/MultilineInput.stories');
   require('../src/components/common/molecules/SocialLogin/SocialLogin.stories');
   require('../src/components/common/molecules/TextBox/TextBox.stories');
-  require('../src/components/common/molecules/TopBar/MainTopBar.stories');
   require('../src/components/diary/organisms/DiaryCalendar/DiaryCalendar.stories');
   require('../src/components/map/molecules/LocationCard/LocationCard.stories');
   require('../src/components/qna/organisms/QuestionBox/QuestionBox.stories');
@@ -26,7 +25,6 @@ const stories = [
   '../src/components/common/molecules/MultilineInput/MultilineInput.stories',
   '../src/components/common/molecules/SocialLogin/SocialLogin.stories',
   '../src/components/common/molecules/TextBox/TextBox.stories',
-  '../src/components/common/molecules/TopBar/MainTopBar.stories',
   '../src/components/diary/organisms/DiaryCalendar/DiaryCalendar.stories',
   '../src/components/map/molecules/LocationCard/LocationCard.stories',
   '../src/components/qna/organisms/QuestionBox/QuestionBox.stories',
