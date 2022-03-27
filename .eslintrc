@@ -1,8 +1,6 @@
 {
   "env": {
-    "node": true,
-    // for supporting some global methods (like `fetch`)
-    "browser": true
+    "react-native/react-native": true
   },
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
@@ -15,7 +13,7 @@
     "sourceType": "module"
   },
   "globals": {
-    "__DEV__": "readonly"
+    "JSX": true
   },
   "rules": {
     "react/jsx-filename-extension": [
@@ -24,16 +22,19 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ],
-    "react/function-component-definition": [
-      1,
-      {
-        "namedComponents": "arrow-function"
-      }
-    ],
     "react/react-in-jsx-scope": 0,
     "react/style-prop-object": 0,
     "import/no-extraneous-dependencies": 0,
     "import/extensions": 0,
-    "no-unused-vars": "warn"
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "import/no-unresolved": 0,
+    "global-require": 0,
+    "import/prefer-default-export": 0,
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "react/require-default-props": 0,
+    "import/order": 0,
+    "react-native/no-raw-text": 0
   }
 }
