@@ -4,13 +4,20 @@ import TextBox from '@/components/common/molecules/TextBox/TextBox';
 import QuestionBox from '@/components/qna/organisms/QuestionBox';
 import { COLORS } from '@/constants/styles/colors';
 import { TEXT_STYLE_NAME } from '@/constants/styles/textStyles';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Animated } from 'react-native';
 import * as styles from './MainTemplate.style';
 import MainTopBar from './MainTopBar';
 
-export default function MainTemplate() {
+interface MainTemplateProps {
+  onPressNext?: (text: string) => void;
+}
+
+export default function MainTemplate({ onPressNext }: MainTemplateProps) {
   const scroll = useRef(new Animated.Value(0)).current;
+
+  const [answer, setAnswer] = useState('');
+
   return (
     <>
       <styles.TopBarWrap>
@@ -25,7 +32,19 @@ export default function MainTemplate() {
       >
         <styles.PaddingWrap>
           <styles.Title name={TEXT_STYLE_NAME.title}>Greener</styles.Title>
-          <QuestionBox title="How was your day?" />
+          <QuestionBox
+            title="What happened today?"
+            inputValue={answer}
+            onChangeText={(text) => {
+              setAnswer(text);
+            }}
+            onPressSend={
+              onPressNext &&
+              (() => {
+                onPressNext(answer);
+              })
+            }
+          />
           <styles.DiaryPreview>
             <styles.EmotionWrap>
               <StyledText name={TEXT_STYLE_NAME.subtitle2B}>

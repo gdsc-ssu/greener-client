@@ -35,3 +35,13 @@ export async function getDiary(diaryId: number) {
 
   return tmpDiary;
 }
+
+export async function postDiary(diary: string) {
+  const tmpDiary: Diary = {
+    emotionColor: EMOTION_COLOR.GREEN,
+    emotionJournal: diary,
+    createdAt: new Date(),
+  };
+
+  return tmpDiary;
+}
