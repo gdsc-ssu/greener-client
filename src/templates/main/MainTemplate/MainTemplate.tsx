@@ -4,24 +4,54 @@ import TextBox from '@/components/common/molecules/TextBox/TextBox';
 import QuestionBox from '@/components/qna/organisms/QuestionBox';
 import { COLORS } from '@/constants/styles/colors';
 import { TEXT_STYLE_NAME } from '@/constants/styles/textStyles';
-import { useRef, useState } from 'react';
+import { LinkPreview } from '@flyerhq/react-native-link-preview';
+import { useCallback, useRef, useState } from 'react';
 import { Animated } from 'react-native';
 import * as styles from './MainTemplate.style';
 import MainTopBar from './MainTopBar';
 
+const CONTENTS = [
+  'https://www.youtube.com/watch?v=UjfO2sC5aA8',
+  'https://www.youtube.com/watch?v=5sVNk-fSKRQ',
+] as const;
+
 interface MainTemplateProps {
   onPressNext?: (text: string) => void;
+  onPressProfile?: () => void;
 }
 
-export default function MainTemplate({ onPressNext }: MainTemplateProps) {
+export default function MainTemplate({
+  onPressNext,
+  onPressProfile,
+}: MainTemplateProps) {
   const scroll = useRef(new Animated.Value(0)).current;
 
   const [answer, setAnswer] = useState('');
 
+  const Card = useCallback(
+    ({ content }: { content: string }) => (
+      <LinkPreview
+        text={content}
+        containerStyle={{ flex: 1 }}
+        renderLinkPreview={({ previewData }) => (
+          <ContentCard
+            title={previewData?.title || ''}
+            coverImage={previewData?.image?.url || ''}
+          />
+        )}
+      />
+    ),
+    [],
+  );
+
   return (
     <>
       <styles.TopBarWrap>
-        <MainTopBar scroll={scroll} scrollRange={styles.SCROLL_RANGE} />
+        <MainTopBar
+          scroll={scroll}
+          scrollRange={styles.SCROLL_RANGE}
+          onPressProfile={onPressProfile}
+        />
       </styles.TopBarWrap>
       <styles.Container
         onScroll={Animated.event(
@@ -63,22 +93,15 @@ export default function MainTemplate({ onPressNext }: MainTemplateProps) {
             </styles.ContentsTitle>
             <styles.VerticalContents>
               <styles.HorizontalContents>
-                <styles.LeftContentWrap>
-                  <ContentCard title="How to find own hobby" coverImage="" />
-                </styles.LeftContentWrap>
-                <ContentCard title="How to find own hobby" coverImage="" />
-              </styles.HorizontalContents>
-              <styles.HorizontalContents>
-                <styles.LeftContentWrap>
-                  <ContentCard title="How to find own hobby" coverImage="" />
-                </styles.LeftContentWrap>
-                <ContentCard title="How to find own hobby" coverImage="" />
-              </styles.HorizontalContents>
-              <styles.HorizontalContents>
-                <styles.LeftContentWrap>
-                  <ContentCard title="How to find own hobby" coverImage="" />
-                </styles.LeftContentWrap>
-                <ContentCard title="How to find own hobby" coverImage="" />
+                {CONTENTS.map((content, index) =>
+                  index % 2 === 0 ? (
+                    <styles.LeftContentWrap>
+                      <Card content={content} />
+                    </styles.LeftContentWrap>
+                  ) : (
+                    <Card content={content} />
+                  ),
+                )}
               </styles.HorizontalContents>
             </styles.VerticalContents>
           </styles.ContentsWrap>

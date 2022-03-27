@@ -17,6 +17,9 @@ export default function MainPage() {
             },
           });
         }}
+        onPressProfile={() => {
+          navigation.navigate('LoginModal');
+        }}
       />
     </styles.Container>
   );

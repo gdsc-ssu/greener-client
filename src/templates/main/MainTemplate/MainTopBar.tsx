@@ -7,9 +7,14 @@ import { Animated } from 'react-native';
 interface MainTopBarProps {
   scroll: Animated.Value;
   scrollRange: number;
+  onPressProfile?: () => void;
 }
 
-function AnimatedLogo({ scroll, scrollRange }: MainTopBarProps) {
+function AnimatedLogo({
+  scroll,
+  scrollRange,
+  onPressProfile,
+}: MainTopBarProps) {
   const size = scroll.interpolate({
     inputRange: [0, scrollRange],
     outputRange: [60 / 32, 1],
@@ -41,12 +46,17 @@ function AnimatedLogo({ scroll, scrollRange }: MainTopBarProps) {
   );
 }
 
-export default function MainTopBar({ scroll, scrollRange }: MainTopBarProps) {
+export default function MainTopBar({
+  scroll,
+  scrollRange,
+  onPressProfile,
+}: MainTopBarProps) {
   return (
     <TopBar
       titleComponent={
         <AnimatedLogo scroll={scroll} scrollRange={scrollRange} />
       }
+      onPressProfile={onPressProfile}
     />
   );
 }
