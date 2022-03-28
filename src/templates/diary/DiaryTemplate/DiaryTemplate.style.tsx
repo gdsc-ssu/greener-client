@@ -2,9 +2,11 @@ import StyledText from '@/components/common/atoms/StyledText';
 import { COLORS } from '@/constants/styles/colors';
 import styled from '@emotion/native';
 
+export const SCROLL_RANGE = 56;
+
 export const Container = styled.ScrollView({
   flex: 1,
-  paddingVertical: 28,
+  paddingTop: 28,
   paddingHorizontal: 32,
   flexDirection: 'column',
   backgroundColor: COLORS.grayscale.white,
@@ -13,9 +15,10 @@ export const Container = styled.ScrollView({
 export const JournalArea = styled.View({
   paddingTop: 48,
   flexDirection: 'column',
+  paddingBottom: SCROLL_RANGE + 28,
 });
 
-export const JournalInfo = styled.View({
+export const JournalInfo = styled.Pressable({
   flexDirection: 'column',
   alignItems: 'center',
 });
@@ -31,7 +34,7 @@ export const JournalDate = styled(StyledText)({
   marginTop: 8,
 });
 
-export const JournalWrap = styled.View({
+export const JournalWrap = styled.Pressable({
   flexDirection: 'column',
   marginTop: 32,
 });

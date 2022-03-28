@@ -1,10 +1,12 @@
 import BottomTab from '@/components/common/molecules/BottomTab';
 import { TAB_NAME } from '@/constants/routeNames';
+import { COLORS } from '@/constants/styles/colors';
 import MapPage from '@/screens/main/MapPage';
 import {
   BottomTabBarProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import DiaryStack from './DiaryStackNavigator';
 import MainStack from './MainStackNavigator';
 
@@ -34,14 +36,17 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTabNavigator() {
   return (
-    <Tab.Navigator
-      initialRouteName={TAB_NAME.Main}
-      tabBar={TabBar}
-      screenOptions={{ headerShown: false }}
-    >
-      <Tab.Screen name={TAB_NAME.Main} component={MainStack} />
-      <Tab.Screen name={TAB_NAME.Map} component={MapPage} />
-      <Tab.Screen name={TAB_NAME.Diary} component={DiaryStack} />
-    </Tab.Navigator>
+    /* eslint-disable-next-line react-native/no-inline-styles */
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.grayscale.white }}>
+      <Tab.Navigator
+        initialRouteName={TAB_NAME.Main}
+        tabBar={TabBar}
+        screenOptions={{ headerShown: false }}
+      >
+        <Tab.Screen name={TAB_NAME.Main} component={MainStack} />
+        <Tab.Screen name={TAB_NAME.Map} component={MapPage} />
+        <Tab.Screen name={TAB_NAME.Diary} component={DiaryStack} />
+      </Tab.Navigator>
+    </SafeAreaView>
   );
 }

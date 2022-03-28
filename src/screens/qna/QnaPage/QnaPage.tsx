@@ -2,8 +2,10 @@ import Arrow from '@/assets/icons/Arrow';
 import TopBar from '@/components/common/molecules/TopBar';
 import { TAB_NAME } from '@/constants/routeNames';
 import { postDiary } from '@/logics/server/diary';
+import { selectedDiaryAtom } from '@/templates/diary/DiaryTemplate/DiaryTemplateWrapped';
 import QnaTemplate from '@/templates/qna/QnaTemplate';
 import { useNavigation } from '@react-navigation/native';
+import { atom, useAtom } from 'jotai';
 import { useState } from 'react';
 import { Pressable } from 'react-native';
 import * as styles from './QnaPage.style';
@@ -16,6 +18,8 @@ const QUESTIONS = [
   'How was the result?',
 ] as const;
 
+export const emotionJournalAtom = atom('');
+
 export default function QnaPage({ route }) {
   const { firstAnswer } = route.params;
 
@@ -27,6 +31,7 @@ export default function QnaPage({ route }) {
     '',
     '',
   ]);
+  const [selectedDiary, setSelectedDiary] = useAtom(selectedDiaryAtom);
 
   const navigation = useNavigation();
 
@@ -59,6 +64,7 @@ export default function QnaPage({ route }) {
               finalDiary += answer;
             });
             const newDiary = await postDiary(finalDiary);
+            setSelectedDiary({ ...selectedDiary, emotionJournal: finalDiary });
             console.log(newDiary);
             navigation.goBack();
             navigation.navigate(TAB_NAME.Diary);
