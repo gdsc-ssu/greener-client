@@ -1,13 +1,17 @@
 // wrapped component of `DiaryTemplate`
 
+import { SCREEN_NAME } from '@/constants/routeNames';
 import {
   Diary,
   DiaryEmotion,
   EMOTION_COLOR,
 } from '@/constants/types/dataTypes';
+import { userAtom } from '@/logics/atoms';
 import { getDiary, getDiaryEmotions } from '@/logics/server/diary';
+import { useNavigation } from '@react-navigation/native';
 import { atom, useAtom } from 'jotai';
 import { useEffect } from 'react';
+import { Alert } from 'react-native';
 import DiaryTemplate from './DiaryTemplate';
 
 const now = new Date();
@@ -36,6 +40,9 @@ export default function DiaryTemplateWrapped() {
   const [diaryEmotions, setDiaryEmotions] = useAtom(diaryEmotionsAtom);
   const [selectedDate, setSelectedDate] = useAtom(selectedDateAtom);
   const [selectedDiary, setSelectedDiary] = useAtom(selectedDiaryAtom);
+  const [user, setUser] = useAtom(userAtom);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     async function refreshDiaryEmotions() {
@@ -65,10 +72,33 @@ export default function DiaryTemplateWrapped() {
         const diary = await getDiary(
           selectedDiaryEmotion ? selectedDiaryEmotion.id : -1,
         );
+        diary.emotionJournal = emotionJournal;
+        diary.gratitudeJournal = gratitudeJournal;
         setSelectedDiary(diary);
       }}
       setDate={(year, month) => {
         setDate({ year, month });
+      }}
+      profileImage={user.profileImage}
+      onPressGratitudeJournal={() => {
+        navigation.navigate(SCREEN_NAME.GratitudeJournalPage);
+      }}
+      onPressEmoji={() => {
+        Alert.alert('Do you want to change blue to green?', undefined, [
+          {
+            text: 'No',
+          },
+          {
+            text: 'Change',
+            onPress: () => {
+              const previousDiaryEmotions = [...diaryEmotions];
+              const tmp =
+                previousDiaryEmotions[selectedDiary.createdAt.getDate()];
+              if (tmp) tmp.emotionColor = EMOTION_COLOR.GREEN;
+              setDiaryEmotions(previousDiaryEmotions);
+            },
+          },
+        ]);
       }}
     />
   );

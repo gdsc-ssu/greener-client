@@ -13,6 +13,7 @@ export const SCREEN_NAME = {
   DiaryPage: 'DiaryPage',
   QnaPage: 'QnaPage',
   SettingsPage: 'SettingsPage',
+  GratitudeJournalPage: 'GratitudeJournalPage',
 } as const;
 export type ScreenName = CustomEnum<typeof SCREEN_NAME>;
 
