@@ -13,10 +13,10 @@ export async function getDiaryEmotions({ year, month }: GetDiaryEmotionsProps) {
   const tmpDiaryEmotionList: Array<DiaryEmotion | undefined> = [
     ...Array(31),
   ].map((value, index) =>
-    index < 15
+    index < new Date().getDate() + 1
       ? {
           id: index,
-          emotionColor: EMOTION_COLOR.GREEN,
+          emotionColor: EMOTION_COLOR.BLUE,
           createdAt: new Date(year, month, index + 1),
         }
       : undefined,
@@ -28,8 +28,7 @@ export async function getDiaryEmotions({ year, month }: GetDiaryEmotionsProps) {
 export async function getDiary(diaryId: number) {
   const tmpDiary: Diary = {
     emotionColor: EMOTION_COLOR.GREEN,
-    emotionJournal: `test emotion journal ${diaryId}`,
-    gratitudeJournal: `test gratitude journal ${diaryId}`,
+    emotionJournal: '',
     createdAt: new Date(),
   };
 

@@ -1,5 +1,6 @@
 import { SCREEN_NAME } from '@/constants/routeNames';
 import SettingsPage from '@/screens/common/SettingsPage';
+import GratitudeJournalPage from '@/screens/diary/GratitudeJournalPage';
 import DiaryPage from '@/screens/main/DiaryPage';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -13,6 +14,10 @@ export default function DiaryStack() {
     >
       <Stack.Screen name={SCREEN_NAME.DiaryPage} component={DiaryPage} />
       <Stack.Screen name={SCREEN_NAME.SettingsPage} component={SettingsPage} />
+      <Stack.Screen
+        name={SCREEN_NAME.GratitudeJournalPage}
+        component={GratitudeJournalPage}
+      />
     </Stack.Navigator>
   );
 }

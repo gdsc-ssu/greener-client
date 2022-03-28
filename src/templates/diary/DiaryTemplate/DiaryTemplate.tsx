@@ -26,8 +26,11 @@ interface DiaryTemplateProps {
   selectedDate: { year: number; month: number; date: number };
   diaryEmotionList: Array<DiaryEmotion | undefined>;
   selectedDiary: Diary;
+  profileImage?: string;
   onPressDate?: (date: number) => void;
   setDate?: (year: number, month: number) => void;
+  onPressGratitudeJournal?: () => void;
+  onPressEmoji?: () => void;
 }
 
 export default function DiaryTemplate({
@@ -35,8 +38,11 @@ export default function DiaryTemplate({
   selectedDate,
   diaryEmotionList,
   selectedDiary,
+  profileImage,
   onPressDate,
   setDate,
+  onPressGratitudeJournal,
+  onPressEmoji,
 }: DiaryTemplateProps) {
   return (
     <>
@@ -46,6 +52,7 @@ export default function DiaryTemplate({
             MONTH_NAME[calendarDate.month]
           }`}</StyledText>
         }
+        profileImage={profileImage}
       />
       <styles.Container>
         <DiaryCalendar
@@ -83,7 +90,7 @@ export default function DiaryTemplate({
           }
         />
         <styles.JournalArea>
-          <styles.JournalInfo>
+          <styles.JournalInfo onPress={onPressEmoji}>
             <styles.EmotionEmoji>😶</styles.EmotionEmoji>
             <styles.JournalDate name={TEXT_STYLE_NAME.subtitle1}>{`${
               selectedDate.month + 1
@@ -96,7 +103,7 @@ export default function DiaryTemplate({
             </styles.JournalTitle>
             <TextBox text={selectedDiary.emotionJournal} />
           </styles.JournalWrap>
-          <styles.JournalWrap>
+          <styles.JournalWrap onPress={onPressGratitudeJournal}>
             <styles.JournalTitle name={TEXT_STYLE_NAME.subtitle2B}>
               Gratitude Journal
             </styles.JournalTitle>

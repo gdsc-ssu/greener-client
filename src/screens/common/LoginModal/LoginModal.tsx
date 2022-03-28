@@ -20,7 +20,11 @@ export default function LoginModal() {
         style={{ backgroundColor: COLORS.grayscale.gray0, paddingTop: 0 }}
       >
         <styles.LoginModal>
-          <GoogleLogin />
+          <GoogleLogin
+            callback={() => {
+              navigation.goBack();
+            }}
+          />
         </styles.LoginModal>
       </SafeAreaView>
     </styles.Container>

@@ -7,12 +7,14 @@ import { Animated } from 'react-native';
 interface MainTopBarProps {
   scroll: Animated.Value;
   scrollRange: number;
+  profileImage?: string;
   onPressProfile?: () => void;
 }
 
 function AnimatedLogo({
   scroll,
   scrollRange,
+  profileImage,
   onPressProfile,
 }: MainTopBarProps) {
   const size = scroll.interpolate({
@@ -49,6 +51,7 @@ function AnimatedLogo({
 export default function MainTopBar({
   scroll,
   scrollRange,
+  profileImage,
   onPressProfile,
 }: MainTopBarProps) {
   return (
@@ -56,6 +59,7 @@ export default function MainTopBar({
       titleComponent={
         <AnimatedLogo scroll={scroll} scrollRange={scrollRange} />
       }
+      profileImage={profileImage}
       onPressProfile={onPressProfile}
     />
   );
